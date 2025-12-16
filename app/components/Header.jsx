@@ -2,47 +2,28 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Header() {
-  return (
-    <header>
-      {/* Top bar */}
-      <div className="bg-neutral-900 text-neutral-100 text-sm py-3">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          Email:{" "}
-          <a
-            href="mailto:admin@citadelhousingandhomelessservices.org.uk"
-            className="underline"
-          >
-            admin@citadelhousingandhomelessservices.org.uk
-          </a>{" "}
-          | Phone:{" "}
-          <a href="tel:+447447914864" className="underline">
-            +44 7447 914864
-          </a>
-        </div>
-      </div>
+return (
+<header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+<div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+<Link href="/" className="flex items-center gap-3">
+<Image src="/logo.png" alt="Perfect Property & Relocation Solutions" width={160} height={70} />
+</Link>
 
-      {/* Main nav */}
-      <div className="bg-[#d9d5cd]">
-        <div className="max-w-7xl mx-auto px-4 py-5 flex items-center justify-between">
-          <Link href="/">
-            <Image
-              src="/CITADEL-HOUSING.png"
-              alt="Citadel Housing"
-              width={228}
-              height={101}
-              priority
-            />
-          </Link>
 
-          <nav className="hidden md:flex gap-8 text-sm font-medium text-black">
-            <Link href="/">About Us</Link>
-            <Link href="/candidate-services">Candidate Services</Link>
-            <Link href="/cv">
-              Quick Drop CV
-            </Link>
-          </nav>
-        </div>
-      </div>
-    </header>
-  );
+<nav className="hidden md:flex items-center gap-10 text-sm font-medium text-gray-700">
+<Link href="/services" className="hover:text-black">Services</Link>
+<Link href="/candidates" className="hover:text-black">Candidates</Link>
+<Link href="/contact" className="hover:text-black">Contact</Link>
+</nav>
+
+
+<Link
+href="/cv"
+className="rounded-full bg-neutral-900 px-6 py-2 text-sm font-semibold text-white hover:bg-neutral-800"
+>
+Submit CV
+</Link>
+</div>
+</header>
+);
 }

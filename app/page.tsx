@@ -2,72 +2,56 @@ import React from "react";
 
 export default function CitadelLayout() {
   return (
-    <div className="w-full text-gray-800">
-
-      {/* Main Content */}
-      <main className="w-full bg-white">
-        {/* Hero / About */}
-        <div className="grid grid-cols-1 lg:grid-cols-4">
-          {/* Left Image */}
-          <div className="hidden lg:block">
-            <img
-              src="https://citadelhousingandhomelessservices.org.uk/wp-content/uploads/2025/08/Firefly_realistic-housing-colonies-images-for-website-providing-housing-services-across-UK-19959.jpg"
-              alt="Housing"
-              className="h-full w-full object-cover"
-            />
-          </div>
-
-          {/* Center Content */}
-          <div className="lg:col-span-2 flex flex-col">
-            {/* Cover */}
-            <div className="relative h-64 md:h-80">
-              <img
-                src="https://citadelhousingandhomelessservices.org.uk/wp-content/uploads/2025/08/Firefly_realistic-housing-colonies-images-for-website-providing-housing-services-across-UK-762060-scaled.jpg"
-                alt="About us"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-                <h1 className="text-white text-3xl md:text-5xl font-bold">
-                  ABOUT US
-                </h1>
-              </div>
-            </div>
-
-            {/* Text Content */}
-            <div className="px-6 py-10 text-center space-y-6">
-              <h2 className="text-xl font-semibold">Housing Operations</h2>
-              <p className="text-sm md:text-base">
-                Across all housing operational disciplines, including income
-                management, ASB, customer services, complaints, tenancy and
-                neighbourhood management, leasehold, and homeownership, our
-                seasoned consultants deliver outstanding personnel from officers
-                to directors.
-              </p>
-
-              <h2 className="text-xl font-semibold">Our Method</h2>
-              <p className="text-sm md:text-base">
-                Housing operations have become increasingly complex due to major
-                regulatory changes. Today’s professionals are driven by customer
-                experience, regulatory compliance, and performance improvement
-                while navigating constant challenges.
-              </p>
-              <p className="text-sm md:text-base">
-                Our network of housing experts provides a transparent,
-                compliant, and results-driven service across the sector.
-              </p>
-            </div>
-          </div>
-
-          {/* Right Image */}
-          <div className="hidden lg:block">
-            <img
-              src="https://citadelhousingandhomelessservices.org.uk/wp-content/uploads/2025/08/Firefly_realistic-housing-images-for-website-providing-housing-services-across-UK-19959.jpg"
-              alt="Housing"
-              className="h-full w-full object-cover"
-            />
-          </div>
+    <main className="bg-gray-50 text-gray-800">
+      {/* Hero */}
+      <section className="relative h-[70vh] flex items-center justify-center">
+        <img
+          src="/house.jpeg"
+          alt="Housing support"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 text-center max-w-3xl px-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-white">Supporting Housing Across the UK</h1>
+          <p className="mt-6 text-lg text-gray-200">
+            Specialist recruitment and consultancy for housing, homelessness, and community services.
+          </p>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* About Content */}
+      <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-12">
+        <div className="md:col-span-1">
+          <h2 className="text-2xl font-bold">Who We Are</h2>
+        </div>
+        <div className="md:col-span-2 space-y-6 text-base leading-relaxed">
+          <p>
+            Perfect Property & Relocation Solutions partners with local authorities,
+            housing associations, and charities to deliver reliable, compliant,
+            and experienced professionals.
+          </p>
+          <p>
+            Our consultants understand frontline pressure, regulation, and service
+            delivery. We place talent that strengthens teams, improves outcomes,
+            and protects vulnerable communities.
+          </p>
+        </div>
+      </section>
+
+      {/* Value Cards */}
+      <section className="bg-white py-20">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+          {["Sector Expertise", "Compliance First", "People Focused"].map((title) => (
+            <div key={title} className="rounded-2xl border p-8 shadow-sm">
+              <h3 className="text-xl font-semibold mb-4">{title}</h3>
+              <p className="text-sm text-gray-600">
+                We combine deep housing knowledge with transparent processes to
+                deliver professionals you can trust.
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }

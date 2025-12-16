@@ -6,47 +6,48 @@ export async function POST(req) {
 
     const name = formData.get("name");
     const email = formData.get("email");
-    const subject = formData.get("subject");
+    const subject = formData.get("subject") || "General Enquiry";
     const message = formData.get("message");
-    const file = formData.get("cv");
+    const file = formData.get("cv"); // may be null
 
-    if (!file) {
-      return Response.json(
-        { error: "CV file is required" },
-        { status: 400 }
-      );
+    let attachments = [];
+
+    // ✅ Only process CV if it exists
+    if (file && typeof file === "object" && "arrayBuffer" in file) {
+      const buffer = Buffer.from(await file.arrayBuffer());
+
+      attachments.push({
+        filename: file.name,
+        content: buffer,
+      });
     }
 
-    // Convert file to buffer
-    const buffer = Buffer.from(await file.arrayBuffer());
-
     const transporter = nodemailer.createTransport({
-      host: "smtp.zoho.com", // ✅ FREE ZOHO SMTP
+      host: "smtp.zoho.com",
       port: 587,
-      secure: false, // SSL
+      secure: false,
       auth: {
         user: process.env.ZOHO_SMTP_USER,
         pass: process.env.ZOHO_SMTP_PASS,
       },
     });
+
     await transporter.sendMail({
-      from: `"CV Submission" <${process.env.ZOHO_SMTP_USER}>`,
+      from: `"Website Enquiry" <${process.env.ZOHO_SMTP_USER}>`,
       to: process.env.EMAIL_TO,
-      replyTo: email,
-      subject: `New CV Submission — ${subject}`,
+      replyTo: email || undefined,
+      subject: attachments.length
+        ? `New CV Submission — ${subject}`
+        : `New Contact Enquiry`,
       html: `
-        <h2>New CV Submitted</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <h2>${attachments.length ? "New CV Submission" : "New Contact Enquiry"}</h2>
+        <p><strong>Name:</strong> ${name || "Not provided"}</p>
+        <p><strong>Email:</strong> ${email || "Not provided"}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
         <p><strong>Message:</strong></p>
         <p>${message || "No message provided"}</p>
       `,
-      attachments: [
-        {
-          filename: file.name,
-          content: buffer,
-        },
-      ],
+      attachments,
     });
 
     return Response.json({ success: true });
