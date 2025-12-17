@@ -38,6 +38,17 @@ export default function CitadelLayout() {
         </div>
       </section>
 
+      {/* Image Break */}
+      <section className="max-w-6xl mx-auto px-6 pb-20">
+        <div className="rounded-2xl overflow-hidden shadow-sm">
+          <img
+            src="/image4.jpg"
+            alt="Community housing work"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </section>
+
       {/* Value Cards */}
       <section className="bg-white py-20">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">

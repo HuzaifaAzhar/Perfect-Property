@@ -1,6 +1,7 @@
 export default function ServicesPage() {
   return (
     <main className="bg-gray-50 text-gray-800">
+      {/* Hero */}
       <section className="bg-neutral-900 text-white py-24 text-center px-6">
         <h1 className="text-4xl md:text-5xl font-bold">Our Services</h1>
         <p className="mt-6 max-w-3xl mx-auto text-gray-300">
@@ -9,7 +10,28 @@ export default function ServicesPage() {
         </p>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-10">
+      {/* Image Section */}
+      <section className="max-w-6xl mx-auto px-6 -mt-16 pb-20">
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src="/image6.jpg"
+              alt="Housing and community services"
+              className="w-full h-[300px] object-cover"
+            />
+          </div>
+          <div className="rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src="/image7.jpg"
+              alt="Professional housing consultancy"
+              className="w-full h-[300px] object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="max-w-6xl mx-auto px-6 pb-20 grid md:grid-cols-3 gap-10">
         {[{
           title: "Temporary & Contract Staffing",
           text: "Reliable interim professionals to maintain service continuity during change, growth, or high demand."
