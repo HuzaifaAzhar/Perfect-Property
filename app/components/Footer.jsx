@@ -16,6 +16,8 @@ export default function Footer() {
           <p className="font-semibold text-white">Company</p>
           <Link href="/services" className="block hover:text-white">Services</Link>
           <Link href="/candidates" className="block hover:text-white">Candidates</Link>
+          <Link href="/contact" className="block hover:text-white">Contact</Link>
+
         </div>
 
         <div className="space-y-4 text-sm">
