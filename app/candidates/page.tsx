@@ -7,14 +7,15 @@ export default function CandidatesPage() {
       <section className="relative bg-gray-100 py-28 px-6 text-center">
         <img
           src="/image1.jpg"
-          alt="Housing professionals at work"
+          alt="Serviced apartment and short-let professionals at work"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-white">Candidates</h1>
           <p className="mt-6 text-gray-200">
-            Find meaningful work within housing and homelessness services, supported by consultants who understand your experience.
+            Discover flexible roles within serviced apartments and short-let
+            accommodation, supported by consultants who understand the sector.
           </p>
         </div>
       </section>
@@ -22,11 +23,13 @@ export default function CandidatesPage() {
       <section className="max-w-5xl mx-auto px-6 py-20 space-y-16">
         {/* Benefits */}
         <div className="grid md:grid-cols-3 gap-8">
-          {["Flexible Opportunities", "Transparent Compliance", "Career Progression"].map((title) => (
+          {["Flexible Opportunities", "Clear Onboarding", "Career Development"].map((title) => (
             <div key={title} className="rounded-xl border p-6">
               <h3 className="font-semibold mb-3">{title}</h3>
               <p className="text-sm text-gray-600">
-                We support you from registration to placement, ensuring clarity, fairness, and long-term growth.
+                We support you from registration to placement, offering clarity,
+                reliable communication, and opportunities across short-let and
+                apartment-based roles.
               </p>
             </div>
           ))}
@@ -38,7 +41,7 @@ export default function CandidatesPage() {
             <div key={i} className="rounded-2xl overflow-hidden shadow-sm">
               <img
                 src={img}
-                alt="Housing and support work"
+                alt="Serviced apartment and short-let accommodation work"
                 className="w-full h-[220px] object-cover"
               />
             </div>
